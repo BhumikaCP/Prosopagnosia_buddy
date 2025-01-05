@@ -1,0 +1,73 @@
+### Prosopagnosia Assistance Project
+
+**Overview**
+
+This project aims to assist individuals suffering from prosopagnosia (face blindness) by providing a real-time facial recognition system. The solution includes visual and auditory feedback mechanisms to identify people and announce their names. The long-term goal is to integrate this technology into wearable devices, such as smart glasses, for seamless assistance.
+
+**Features Implemented**
+
+1. Face Recognition System
+
+A face recognition model using the Local Binary Patterns Histogram (LBPH) algorithm.
+Trained with labeled images stored in the training_images directory.
+Detects faces in real-time from webcam video streams and matches them with trained labels.
+
+2. Feedback Mechanisms
+
+Visual Feedback
+The recognized person's name and confidence score are displayed on the video stream in real time.
+Unrecognized faces are labeled as "Unknown."
+
+Audio Feedback
+A Text-to-Speech (TTS) system announces the name of the recognized individual.
+The system ensures each name is announced only once until no faces are detected for a certain period.
+For unknown individuals, the system announces: "I'm sorry, do I know you?"
+
+3. Real-Time Detection
+
+Integrates OpenCV for real-time webcam capture and facial detection.
+Uses Haar cascades for face detection.
+
+**Project Structure**
+
+Prosopagnosia_project/
+|-- codebase/
+| |-- main.py # Main script for training and real-time recognition
+| |-- training_images/ # Directory containing labeled subfolders of training images
+|-- requirements.txt # Dependencies for the project
+|-- README.md # Project documentation
+
+**How It Works**
+
+Training:
+The model is trained using images stored in the training_images directory.
+Each subdirectory in training_images represents a labeled class (e.g., a person's name).
+
+Real-Time Recognition:
+The system captures frames from the webcam and detects faces using Haar cascades.
+Each detected face is matched against the trained model.
+
+Feedback:
+Names of recognized individuals are displayed on the screen and announced audibly.
+Unknown faces trigger a generic audio message.
+
+**Installation and Setup**
+
+Install Dependencies: pip install -r requirements.txt
+Prepare Training Data:
+Create subfolders in the training_images directory for each individual.
+Add grayscale images (100x100 pixels recommended) of each person to their respective folder.
+Run the Application: python main.py
+
+**Dependencies**
+Python 3.x
+OpenCV
+NumPy
+Pyttsx3
+
+**Acknowledgments**
+OpenCV for face detection and recognition.
+Pyttsx3 for Text-to-Speech functionality.
+
+**Author**
+This project is designed and developed as a step toward helping individuals with prosopagnosia through innovative AI solutions.
